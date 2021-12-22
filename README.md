@@ -1,1 +1,2 @@
 # deep-learning-with-pytorch
+This repository contains the implementation of key aspects of deep learning using (Deep Learning With PyTorch - Full Course)[https://www.youtube.com/watch?v=c36lUUr864M] as a reference.
