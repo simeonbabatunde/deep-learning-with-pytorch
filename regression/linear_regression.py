@@ -4,9 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
 
-# Generate and prepare regression datasets
+# Load and preprocess regression dataset
 x_np, y_np = datasets.make_regression(n_samples=100, n_features=1, noise=20, random_state=1)
-
 # Convert dataset from numpy to tensor
 x = torch.from_numpy(x_np.astype(np.float32))
 y = torch.from_numpy(y_np.astype(np.float32))
