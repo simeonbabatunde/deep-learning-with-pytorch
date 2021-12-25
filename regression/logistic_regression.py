@@ -2,7 +2,6 @@ from scipy.sparse.construct import rand
 import torch
 import torch.nn as nn
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -11,13 +10,13 @@ from sklearn.model_selection import train_test_split
 bc_data = datasets.load_breast_cancer()
 x, y = bc_data.data, bc_data.target
 
-n_samples, n_features = x.shape
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=123)
-
-# Scale the features using standard scalar
+# Scale features to have mean 0 and variance 1
 sc = StandardScaler()
-x_train = sc.fit_transform(x_train)
-x_test = sc.fit_transform(x_test)
+x_scaled = sc.fit_transform(x)
+
+n_samples, n_features = x.shape
+x_train, x_test, y_train, y_test = train_test_split(x_scaled, y, test_size=0.2, random_state=123)
+
 # Convert from numpy to tensor
 x_train = torch.from_numpy(x_train.astype(np.float32))
 x_test = torch.from_numpy(x_test.astype(np.float32))
