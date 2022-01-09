@@ -21,7 +21,7 @@ class LoadDataset(Dataset):
         return self.n_samples
 
 # Load wine dataset
-wine_data = LoadDataset('../sample_datasets/wine.csv')
+wine_data = LoadDataset('./sample_datasets/wine.csv')
 
 batch_size = 5
 n_iterations = math.ceil(len(wine_data)/batch_size)
