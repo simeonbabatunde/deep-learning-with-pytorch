@@ -79,7 +79,7 @@ with torch.no_grad():
     temp_y = torch.tensor([])
 
     # Eval model with test data
-    for _, (x_test, y_test) in enumerate(test_loader):
+    for x_test, y_test in test_loader:
         prediction = model(x_test)
         temp_pred = torch.cat((temp_pred, prediction))
         temp_y = torch.cat((temp_y, y_test))
